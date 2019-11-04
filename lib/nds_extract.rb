@@ -46,7 +46,7 @@ def gross_per_studio(collection)
   studio_total = {}
   collection.each do |movie|
     studio = movie[:studio]
-    studio_total[studio] = studio_total + movie[:worldwide_gross]
+    studio_total[studio] = movie[:worldwide_gross]
   end
   studio_total
 end
