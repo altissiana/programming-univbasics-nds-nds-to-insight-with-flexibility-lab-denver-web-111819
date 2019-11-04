@@ -42,14 +42,13 @@ def movies_with_director_key(name, movies_collection)
 end
 
 def gross_per_studio(collection)
-  pp collection
   studio_total = {}
   collection.each do |movie|
     studio = movie[:studio]
-    if !studio_total.key?(studio)
-      studio_total[studio] = 0
-    end
-    studio_total[studio] += movie[:worldwide_gross]
+    #if !studio_total.key?(studio)
+    #  studio_total[studio] = 0
+    #end
+    studio_total[studio] = movie[:worldwide_gross] + studio_total[studio]
   end
   studio_total
 end
