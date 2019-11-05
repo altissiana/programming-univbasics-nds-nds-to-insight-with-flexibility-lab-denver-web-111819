@@ -56,8 +56,15 @@ end
 def movies_with_directors_set(source)
   list = []
   source.each do |director|
-  
+    movies = []
+    director[:movies].each do |movie|
+      movie[:director_name] = director[:name]
+      movies.push(movie)
+    end
+    list.push(movies)
   end
+  list
+  
 
   # GOAL: For each director, find their :movies Array and stick it in a new Array
   #
